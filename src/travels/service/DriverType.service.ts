@@ -10,6 +10,9 @@ export class DriverTypeService {
     }
     async findById(id: string) {
         const driverType = (await this.driverTypeRepository.findOne({ id: id }))
-        return  driverType;
+        return driverType;
+    }
+    all() {
+        return this.driverTypeRepository.find()
     }
 }
