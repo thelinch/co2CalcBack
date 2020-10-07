@@ -7,7 +7,7 @@ import { Point } from "./Point.entity";
 export class Travel {
     @PrimaryColumn("uuid")
     id: string
-    @ManyToMany(type => Point)
+    @ManyToMany(type => Point, { cascade: true })
     @JoinTable()
     points: Point[]
     @Column()

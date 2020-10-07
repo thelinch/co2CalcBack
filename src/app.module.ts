@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DriverType } from './travels/models/DriverType.entity';
+import { Point } from './travels/models/Point.entity';
 import { Travel } from './travels/models/Travel.entity';
 import { TravelsModule } from './travels/travels.module';
 import { User } from './users/models/User.entity';
@@ -16,7 +17,7 @@ import { UsersModule } from './users/users.module';
     username: "root",
     password: "root",
     database: "co2",
-    entities: [DriverType,Travel,User],
+    entities: [DriverType,Travel,User,Point],
     synchronize: true
   })],
   controllers: [AppController],

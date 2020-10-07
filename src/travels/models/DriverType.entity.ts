@@ -9,6 +9,8 @@ export class DriverType {
     name?: string
     @Column({ type: "double" })
     quantityCo2ForKilometer?: number
+    @Column()
+    icon?: string
     @OneToMany(() => Travel, travel => travel.driverType)
     travels?: Travel[]
 }

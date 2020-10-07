@@ -7,7 +7,7 @@ export class TravelMap extends Mapper<Travel>{
     public static toPersistence(travelCreateDto: TravelCreateDto): Travel {
         return {
             id: travelCreateDto.id,
-          
+            points: travelCreateDto.points,
             quantityKilometers: travelCreateDto.quantityKilometers,
             driverType: {
                 id: travelCreateDto.driverTypeId
@@ -18,13 +18,12 @@ export class TravelMap extends Mapper<Travel>{
     public static toDto(travel: Travel): TravelViewDto {
         return {
             id: travel.id,
-            pointStart: travel.pointStart,
-            pointEnd: travel.pointEnd,
             quantityKilometers: travel.quantityKilometers,
             users: travel.users,
             calcCo2: travel.calcCo2 || 0,
-            driverType:travel.driverType,
-            date: travel.dateCreated
+            driverType: travel.driverType,
+            date: travel.dateCreated,
+            points:travel.points
         }
     }
 }
