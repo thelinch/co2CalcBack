@@ -13,16 +13,12 @@ export class TravelService {
 
     }
     async save(travelCreateDto: TravelCreateDto) {
-        const queryRunner = this.connection.createQueryRunner();
-        await queryRunner.connect()
-        await queryRunner.startTransaction()
         const travelEntitySaved = TravelMap.toPersistence(travelCreateDto);
         console.log(travelEntitySaved)
         const driverType = (await this.driverTypeService.findById(travelCreateDto.driverTypeId))
         const calcCo2 = driverType.quantityCo2ForKilometer * travelCreateDto.quantityKilometers * (travelCreateDto.outward ? 1 : 2)
         travelEntitySaved.calcCo2 = calcCo2;
         await this.travelRepository.save(travelEntitySaved);
-        await queryRunner.commitTransaction();
     }
 
     async all(): Promise<TravelViewDto[]> {

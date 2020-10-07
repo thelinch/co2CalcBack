@@ -14,6 +14,7 @@ export class TravelCreateDto {
     @ValidateNested()
     users: UserCreateDto[]
     @IsNotEmpty({ message: "field points required" })
+    @IsArray()
     @ValidateNested()
     points: PointCreateDto[]
     @IsNotEmpty({ message: "outward required" })

@@ -8,7 +8,6 @@ export class TravelController {
 
     }
     @Post()
-    @HttpCode(204)
     save(@Body() travelCreateDto: TravelCreateDto) {
         this.travelService.save(travelCreateDto);
     }

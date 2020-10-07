@@ -4,7 +4,7 @@ import { IsEnum, IsNotEmpty, IsNumber, isNumber, IsOptional } from "class-valida
 export class PointCreateDto {
     @IsOptional()
     id: number
-    @IsEnum(["start", "end"], { message: "value not valid(end o start)" })
+    @IsEnum(["start", "end"], { message: "value not valid(end o start)",each:true })
     type: string
     @IsNotEmpty({ message: "field name required" })
     name: string
