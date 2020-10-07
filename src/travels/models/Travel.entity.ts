@@ -1,15 +1,15 @@
 import { User } from "../../users/models/User.entity";
 import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { DriverType } from "./DriverType.entity";
+import { Point } from "./Point.entity";
 
 @Entity()
 export class Travel {
     @PrimaryColumn("uuid")
     id: string
-    @Column()
-    pointStart: string
-    @Column()
-    pointEnd: string
+    @ManyToMany(type => Point)
+    @JoinTable()
+    points: Point[]
     @Column()
     quantityKilometers: number
     @Column({ type: "double" })
