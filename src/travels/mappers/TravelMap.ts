@@ -24,6 +24,7 @@ export class TravelMap extends Mapper<Travel>{
             quantityKilometers: travel.quantityKilometers,
             users: travel.users,
             calcCo2: travel.calcCo2 || 0,
+            driverType:travel.driverType,
             date: travel.dateCreated
         }
     }

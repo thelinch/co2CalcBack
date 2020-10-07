@@ -2,24 +2,24 @@ import { UserCreateDto } from "src/users/dto/UserCreateDto.dto"
 import { IsBoolean, IsInt, IsNotEmpty, IsUUID, MinLength, IsArray, ValidateNested } from 'class-validator';
 
 export class TravelCreateDto {
-    @IsNotEmpty({ message: "required" })
-    @IsUUID("all", { message: "not valid" })
+    @IsNotEmpty({ message: "field id required" })
+    @IsUUID("all", { message: "field id value is UUID" })
     id: string
-    @IsNotEmpty({ message: "required" })
-    @IsInt({ message: "is integer" })
+    @IsNotEmpty({ message: "field driverTypeId required" })
+    @IsUUID("all", { message: " field driverTypeId not valid" })
     driverTypeId: string
-    @IsNotEmpty({ message: "required" })
-    @MinLength(5, { message: "min 5" })
+    @IsNotEmpty({ message: "field pointStart required" })
+    @MinLength(5, { message: "field pointStart min 5" })
     pointStart: string
-    @IsNotEmpty({ message: "required" })
-    @MinLength(5, { message: "min 5" })
+    @IsNotEmpty({ message: "field pointEnd required" })
+    @MinLength(5, { message: "field pointEnd min 5" })
     pointEnd: string
-    @IsNotEmpty({ message: "required" })
+    @IsNotEmpty({ message: "field quantityKilometers required" })
     quantityKilometers: number
-    @IsArray({ each: true })
+    @IsArray()
     @ValidateNested()
     users: UserCreateDto[]
-    @IsNotEmpty({ message: "required" })
-    @IsBoolean({ message: "field is boolean" })
+    @IsNotEmpty({ message: "outward required" })
+    @IsBoolean({ message: "field outward is boolean" })
     outward: boolean
 }

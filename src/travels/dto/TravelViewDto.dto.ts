@@ -6,6 +6,7 @@ export class TravelViewDto {
     pointStart: string
     pointEnd: string
     quantityKilometers: number
+    driverType: any
     users: UserCreateDto[]
     calcCo2: number
     date: Date

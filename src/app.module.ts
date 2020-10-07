@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { DriverType } from './travels/models/DriverType.entity';
 import { Travel } from './travels/models/Travel.entity';
 import { TravelsModule } from './travels/travels.module';
+import { User } from './users/models/User.entity';
 import { UsersModule } from './users/users.module';
 
 @Module({
@@ -15,7 +16,7 @@ import { UsersModule } from './users/users.module';
     username: "root",
     password: "root",
     database: "co2",
-    entities: [DriverType,Travel],
+    entities: [DriverType,Travel,User],
     synchronize: true
   })],
   controllers: [AppController],

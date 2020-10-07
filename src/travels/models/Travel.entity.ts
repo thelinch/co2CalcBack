@@ -1,4 +1,4 @@
-import { User } from "src/users/models/User.entity";
+import { User } from "../../users/models/User.entity";
 import { Column, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { DriverType } from "./DriverType.entity";
 
@@ -12,9 +12,9 @@ export class Travel {
     pointEnd: string
     @Column()
     quantityKilometers: number
-    @Column()
+    @Column({ type: "double" })
     calcCo2?: number
-    @Column()
+    @Column({ default: () => "CURRENT_TIMESTAMP" })
     dateCreated?: Date
     @ManyToOne(() => DriverType, driver => driver.travels)
     driverType: DriverType

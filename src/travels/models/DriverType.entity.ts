@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Double, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Travel } from "./Travel.entity";
 
 @Entity()
@@ -7,7 +7,7 @@ export class DriverType {
     id: string
     @Column()
     name?: string
-    @Column()
+    @Column({ type: "double" })
     quantityCo2ForKilometer?: number
     @OneToMany(() => Travel, travel => travel.driverType)
     travels?: Travel[]
